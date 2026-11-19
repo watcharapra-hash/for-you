@@ -1,0 +1,356 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffe0e9, #fff6ed);
+    font-family: Arial, sans-serif;
+    color: #965b70;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+}
+
+h1, h2 {
+    color: #e9789a;
+}
+
+#welcome {
+    animation: fadeIn 1s ease;
+}
+
+/* ซองจดหมาย */
+.envelope {
+    width: 260px;
+    height: 170px;
+    background: #ff91ad;
+    position: relative;
+    margin: 45px auto 25px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 12px 25px #e9789a55;
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: translateY(-10px);
+}
+
+/* ฝาซอง */
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffb0c4;
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    z-index: 2;
+}
+
+/* ด้านหน้าซอง */
+.pocket {
+    position: absolute;
+    inset: 0;
+    background: #ff91ad;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    z-index: 3;
+}
+
+.hint {
+    font-size: 14px;
+    animation: pulse 1.5s infinite;
+}
+
+/* กระดาษจดหมาย */
+.hidden {
+    display: none;
+}
+
+.letter-paper {
+    background: #fffdf8;
+    padding: 35px 28px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 35px #e9789a33;
+    animation: letterAppear 0.8s ease;
+}
+
+.letter-paper p {
+    line-height: 2;
+}
+
+.signature {
+    margin-top: 30px;
+    font-style: italic;
+    color: #d57898;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff91ad;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ed6f97;
+    transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    50% { opacity: 0.4; }
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* รูปตกแต่ง */
+.decoration {
+    position: fixed;
+    width: 150px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    animation: floating 4s ease-in-out infinite;
+}
+
+/* ซ้ายบน */
+.cloud {
+    left: 8%;
+    top: 15%;
+}
+
+/* ซ้ายล่าง */
+.flowers {
+    left: 10%;
+    bottom: 10%;
+    width: 130px;
+    animation-delay: 1s;
+}
+
+/* ด้านขวา */
+.bear {
+    right: 8%;
+    top: 40%;
+    width: 165px;
+    animation-delay: 2s;
+}
+
+/* ดอกไม้เล็ก */
+.small-flower {
+    position: fixed;
+    font-size: 25px;
+    z-index: 1;
+    pointer-events: none;
+    animation: floating 5s ease-in-out infinite;
+}
+
+.flower-1 {
+    left: 25%;
+    top: 10%;
+}
+
+.flower-2 {
+    right: 15%;
+    bottom: 15%;
+}
+
+.flower-3 {
+    right: 25%;
+    top: 12%;
+}
+
+/* อนิเมชันลอย */
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ให้จดหมายอยู่เหนือของตกแต่ง */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* รองรับจอมือถือ */
+@media (max-width: 600px) {
+    .decoration {
+        width: 75px;
+    }
+
+    .cloud {
+        left: 2%;
+        top: 8%;
+    }
+
+    .flowers {
+        left: 1%;
+        bottom: 4%;
+        width: 75px;
+    }
+
+    .bear {
+        right: 1%;
+        top: 12%;
+        width: 85px;
+    }
+
+    .small-flower {
+        font-size: 18px;
+    }
+
+    .flower-1 { left: 20%; top: 5%; }
+    .flower-2 { right: 8%; bottom: 5%; }
+    .flower-3 { right: 35%; top: 3%; }
+}
+
+/* กรอบรูป Polaroid */
+.photo-frame {
+    position: fixed;
+    width: 170px;
+    padding: 12px 12px 18px;
+    background: #fffdf9;
+    border: 2px solid #f8dce4;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px #d98ca044;
+    text-align: center;
+    z-index: 1;
+
+    animation: photoFloat 4s ease-in-out infinite;
+}
+
+/* รูปด้านในกรอบ */
+.photo-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: #fff1f5;
+    border-radius: 8px;
+}
+
+/* ข้อความใต้รูป */
+.photo-frame p {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: #e58cac;
+    font-style: italic;
+}
+
+/* เทปแปะรูป */
+.photo-tape {
+    position: absolute;
+    width: 65px;
+    height: 22px;
+    background: #ffc3d4aa;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    border-radius: 3px;
+}
+
+/* ตำแหน่งทั้ง 3 รูป */
+.frame-1 {
+    top: 15%;
+    left: 7%;
+    --rotate: -8deg;
+}
+
+.frame-2 {
+    bottom: 10%;
+    left: 11%;
+    --rotate: 6deg;
+    animation-delay: 1s;
+}
+
+.frame-3 {
+    top: 35%;
+    right: 8%;
+    --rotate: 8deg;
+    animation-delay: 2s;
+}
+
+/* รูปขยับลอยเบา ๆ */
+@keyframes photoFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--rotate));
+    }
+    50% {
+        transform: translateY(-12px) rotate(var(--rotate));
+    }
+}
+
+/* รองรับหน้าจอมือถือ */
+@media (max-width: 600px) {
+    .photo-frame {
+        width: 85px;
+        padding: 6px 6px 8px;
+    }
+
+    .photo-frame p {
+        font-size: 9px;
+        margin-top: 5px;
+    }
+
+    .photo-tape {
+        width: 35px;
+        height: 12px;
+        top: -6px;
+    }
+
+    .frame-1 {
+        top: 5%;
+        left: 3%;
+    }
+
+    .frame-2 {
+        bottom: 3%;
+        left: 3%;
+    }
+
+    .frame-3 {
+        top: 6%;
+        right: 3%;
+    }
+}

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter For You 💌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<!-- กรอบรูปด้านซ้ายบน -->
+<div class="photo-frame frame-1">
+    <div class="photo-tape"></div>
+    <img src="images/maprang1.jpg" alt="ก้อนเมฆ">
+    <p>you got this! ♡</p>
+</div>
+
+<!-- กรอบรูปด้านซ้ายล่าง -->
+<div class="photo-frame frame-2">
+    <div class="photo-tape"></div>
+    <img src="images/maprang2.jpg" alt="ดอกไม้">
+    <p>for you 🌷</p>
+</div>
+
+<!-- กรอบรูปด้านขวา -->
+<div class="photo-frame frame-3">
+    <div class="photo-tape"></div>
+    <img src="images/maprang3.jpg" alt="หมีน้อย">
+    <p>big hugs! ♡</p>
+</div>
+
+
+    <main class="container">
+
+        <!-- หน้าแรก -->
+        <section id="welcome">
+            <h1>มีจดหมายถึงมะปรางงง 💗</h1>
+            <p>ลองกดเปิดดูมั้ยย</p>
+
+            <div class="envelope" onclick="openLetter()">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="heart">💗</div>
+            </div>
+
+            <p class="hint">Tap to open 💌</p>
+        </section>
+
+        <!-- เนื้อหาจดหมาย -->
+        <section id="letter" class="hidden">
+            <div class="letter-paper">
+                <h2>ถึงคนเก่งของวันนี้ 🌷</h2>
+
+                <p>
+                    วันนี้เหนื่อยมากเลยใช่ไหม?<br><br>
+
+                    ไม่รู้ว่าวันนี้เธอเจออะไรมา
+                    แต่อยากบอกว่าเธอเก่งมากแล้วนะ<br><br>
+
+                    ไม่จำเป็นต้องเข้มแข็งตลอดเวลาก็ได้
+                    ถ้าเหนื่อยก็พักบ้างนะ<br><br>
+
+                    ขอให้พรุ่งนี้เป็นวันที่ดีสำหรับเธอ 💗
+                </p>
+
+                <p class="signature">From someone who cares 💌</p>
+
+                <button onclick="closeLetter()">ปิดจดหมาย</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
